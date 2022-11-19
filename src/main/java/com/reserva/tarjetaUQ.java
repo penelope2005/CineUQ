@@ -4,6 +4,9 @@
  */
 package com.reserva;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Usuario
@@ -15,8 +18,17 @@ public class tarjetaUQ extends javax.swing.JPanel {
      */
     public tarjetaUQ() {
         initComponents();
+        PanelTarjeta pl = new PanelTarjeta();
+        ShowPanel(pl);
     }
-
+    private void ShowPanel(JPanel p){
+        p.setSize(750, 550);
+        p.setLocation(0, 0);
+        PanelVariable.removeAll();
+        PanelVariable.add(p, BorderLayout.CENTER);
+        PanelVariable.revalidate();
+        PanelVariable.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,11 +38,29 @@ public class tarjetaUQ extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(0, 255, 204));
+        PanelVariable = new javax.swing.JPanel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanelVariable.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout PanelVariableLayout = new javax.swing.GroupLayout(PanelVariable);
+        PanelVariable.setLayout(PanelVariableLayout);
+        PanelVariableLayout.setHorizontalGroup(
+            PanelVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
+        PanelVariableLayout.setVerticalGroup(
+            PanelVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 550, Short.MAX_VALUE)
+        );
+
+        add(PanelVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 550));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelVariable;
     // End of variables declaration//GEN-END:variables
 }
