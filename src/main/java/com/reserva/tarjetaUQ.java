@@ -18,8 +18,6 @@ public class tarjetaUQ extends javax.swing.JPanel {
      */
     public tarjetaUQ() {
         initComponents();
-        PanelTarjeta pl = new PanelTarjeta();
-        ShowPanel(pl);
     }
     private void ShowPanel(JPanel p){
         p.setSize(750, 550);
@@ -39,28 +37,116 @@ public class tarjetaUQ extends javax.swing.JPanel {
     private void initComponents() {
 
         PanelVariable = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        BotonTarjeta = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelVariable.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Requisitos:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setText("La Tarjeta UQ Basic es accesible para todos los usuarios.");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Actualmente se encuentran disponibles 2 tipos de tarjetas:");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Solicite su tarjeta del cine UQ.");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("La tarjeta UQ Gold requiere que usted haya asistido a nuestro cine minimo 30 veces durante el año vigente.");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setText("Tarjeta UQ Gold.");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Tarjeta UQ Basic.");
+
+        BotonTarjeta.setBackground(new java.awt.Color(51, 102, 255));
+        BotonTarjeta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BotonTarjeta.setForeground(new java.awt.Color(255, 255, 255));
+        BotonTarjeta.setText("Solicite su tarjeta");
+        BotonTarjeta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BotonTarjeta.setBorderPainted(false);
+        BotonTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotonTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonTarjetaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelVariableLayout = new javax.swing.GroupLayout(PanelVariable);
         PanelVariable.setLayout(PanelVariableLayout);
         PanelVariableLayout.setHorizontalGroup(
             PanelVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(PanelVariableLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(PanelVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         PanelVariableLayout.setVerticalGroup(
             PanelVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGroup(PanelVariableLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(BotonTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         add(PanelVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 550));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTarjetaActionPerformed
+        Tarjeta pl = new Tarjeta();
+        ShowPanel(pl);
+    }//GEN-LAST:event_BotonTarjetaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonTarjeta;
     private javax.swing.JPanel PanelVariable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
