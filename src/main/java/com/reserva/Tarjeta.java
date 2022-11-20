@@ -4,27 +4,40 @@
  */
 package com.reserva;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
  */
 public class Tarjeta extends javax.swing.JPanel {
     static ArrayList<String>copiaNombre = new ArrayList<String>();
+    static ArrayList<String>copiaIdentificacion = new ArrayList<String>();
     /**
      * Creates new form Tarjeta
      */
     public Tarjeta() {
         initComponents();
-        copiaNombres(copiaNombre);
+        copiaNombre = copiar(copiaNombre);
+        copiaIdentificacion = copiar(copiaIdentificacion);
     }
     
     
-    private void copiaNombres(ArrayList copiaNombre){
+    private static ArrayList copiar(ArrayList b){
+        ArrayList<String> copia = new ArrayList <String>();
         int i, x;
         x = PanelRegistro.ArrayListNombre.size();
         for(i=0;i<x;i++){
-            copiaNombre.add(PanelRegistro.ArrayListNombre.get(i));
+            if(b == copiaNombre){
+            copia.add(PanelRegistro.ArrayListNombre.get(i));    
+            }
+            else if (b == copiaIdentificacion){
+            copia.add(PanelRegistro.ArrayListIdentificacion.get(i));  
+            }    
         }
+        return copia;
+    }
+    private void Validacion (){
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,16 +83,16 @@ public class Tarjeta extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(224, 224, 224))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(300, 300, 300))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(322, 322, 322)
+                        .addComponent(jButton1)))
+                .addGap(0, 250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,9 +101,9 @@ public class Tarjeta extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(71, 71, 71)
                 .addComponent(jButton1)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
