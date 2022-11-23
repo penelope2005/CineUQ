@@ -6,6 +6,7 @@ package com.reserva;
 
 import java.io.*;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 
 public class ArchivoPlano {
@@ -37,11 +38,17 @@ public class ArchivoPlano {
     }
     
     // creamos el metodo para escribir en el archivo de texto
-    
-    public void escribirArchivo(){
+
+
+    public void escribirArchivo(ArrayList<String> variable, ArrayList<Integer> variable2){
+        String mensaje1="", mensaje2="";
+        for(int i=0;i<variable.size();i++){
+            mensaje1+=variable.get(i)+" ";
+            mensaje2+=variable2.get(i)+" ";
+        }
         try{
             FileWriter escritura = new FileWriter(archivo, true);
-            String LineToAppend = "hola\n"; //variable a cambiar
+            String LineToAppend = mensaje1 + "\n" + mensaje2 + "\n"; //variable a cambiar
             escritura.write(LineToAppend);
             escritura.close();
             JOptionPane.showMessageDialog(null, "Texto Añadido con exito");
@@ -49,6 +56,7 @@ public class ArchivoPlano {
             exepcion.printStackTrace(System.out);
         }
     }
+    
     
     public void leerArchivoDeTexto(){
         String contenido;
@@ -61,12 +69,12 @@ public class ArchivoPlano {
             exepcion.printStackTrace(System.out);
         }
     }
-    public static void main (String[] args ){
+    //public static void main (String[] args ){
         //poner en botones las funciones
-        ArchivoPlano archivoTexto = new ArchivoPlano();
-        archivoTexto.crearArchivoDeTexto();
+       // ArchivoPlano archivoTexto = new ArchivoPlano();
+        //archivoTexto.crearArchivoDeTexto();
         //archivoTexto.eliminarArchivoDeTexto();
-        archivoTexto.escribirArchivo();
-        archivoTexto.leerArchivoDeTexto();
-    }
+        //archivoTexto.escribirArchivo();
+        //archivoTexto.leerArchivoDeTexto();
+    //3}
 }
