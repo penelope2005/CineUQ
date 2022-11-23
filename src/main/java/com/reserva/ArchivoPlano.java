@@ -12,7 +12,8 @@ public class ArchivoPlano {
     
     File archivo;
     
-    private void crearArchivoDeTexto(){
+
+    public void crearArchivoDeTexto(){
        archivo = new File("archivo.txt");
        try{
            if(archivo.createNewFile()){
@@ -26,7 +27,7 @@ public class ArchivoPlano {
        }
     }
     
-    private void eliminarArchivoDeTexto(){
+    public void eliminarArchivoDeTexto(){
            if(archivo.delete()){
                JOptionPane.showMessageDialog(null, "Archivo eliminado con exito");
            }
@@ -37,10 +38,11 @@ public class ArchivoPlano {
     
     // creamos el metodo para escribir en el archivo de texto
     
-    private void escribirArchivo(){
+    public void escribirArchivo(){
         try{
-            FileWriter escritura = new FileWriter(archivo);
-            escritura.write("saludos");
+            FileWriter escritura = new FileWriter(archivo, true);
+            String LineToAppend = "hola\n"; //variable a cambiar
+            escritura.write(LineToAppend);
             escritura.close();
             JOptionPane.showMessageDialog(null, "Texto Añadido con exito");
         }catch(IOException exepcion){
@@ -48,7 +50,7 @@ public class ArchivoPlano {
         }
     }
     
-    private void leerArchivoDeTexto(){
+    public void leerArchivoDeTexto(){
         String contenido;
         try{
             FileReader lector = new FileReader(archivo);
@@ -60,6 +62,7 @@ public class ArchivoPlano {
         }
     }
     public static void main (String[] args ){
+        //poner en botones las funciones
         ArchivoPlano archivoTexto = new ArchivoPlano();
         archivoTexto.crearArchivoDeTexto();
         //archivoTexto.eliminarArchivoDeTexto();
