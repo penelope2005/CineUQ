@@ -5,17 +5,33 @@
 package com.reserva;
 
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Login extends javax.swing.JFrame {
+        File archivo;
 
 
     public Login() {
         initComponents();
-        
+        crearArchivoDeTexto();
         jLabel1.setIcon(new ImageIcon("C:/cine2.jpg"));
         
+    }
+    public void crearArchivoDeTexto(){
+       archivo = new File("archivo.txt");
+       try{
+           if(archivo.createNewFile()){
+               System.out.println("Archivo creado con exito");
+           }
+           else{
+               System.out.println("Error al crear archivo");
+           }
+       }catch(IOException exepcion){
+           exepcion.printStackTrace(System.out);
+       }
     }
 
     /**

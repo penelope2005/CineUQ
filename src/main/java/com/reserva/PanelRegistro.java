@@ -13,13 +13,16 @@ public class PanelRegistro extends javax.swing.JPanel {
     static ArrayList<String>ArrayListNombre;
     static ArrayList<String>ArrayListIdentificacion;
     static ArrayList<String>ArrayListContraseña;
+
     
     public PanelRegistro() {
         initComponents();
         ArrayListNombre = new ArrayList<>();
         ArrayListIdentificacion = new ArrayList<>();
         ArrayListContraseña = new ArrayList<>();
+
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

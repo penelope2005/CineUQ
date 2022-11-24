@@ -81,12 +81,12 @@ public class ArchivoPlano {
             exepcion.printStackTrace(System.out);
         }
     }
-    //public static void main (String[] args ){
+    public static void main (String[] args ){
         //poner en botones las funciones
-       // ArchivoPlano archivoTexto = new ArchivoPlano();
+        //ArchivoPlano archivoTexto = new ArchivoPlano();
         //archivoTexto.crearArchivoDeTexto();
         //archivoTexto.eliminarArchivoDeTexto();
         //archivoTexto.escribirArchivo();
         //archivoTexto.leerArchivoDeTexto();
-    //}
+    }
 }

@@ -48,6 +48,7 @@ public class panelAsientos extends javax.swing.JPanel {
                     if(e.getSource().equals(asientos [i][j])){
                         asientos [i][j].setBackground(Color.red);
                         asientos [i][j].setName("Reservado");
+                        Reserva.cantidadAsientos +=1;
                     }
                 }
             }

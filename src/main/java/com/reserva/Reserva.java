@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 public class Reserva extends javax.swing.JFrame {
     Login lg = new Login ();
     static boolean tarjetaUQ;
+    static int cantidadAsientos; 
     public Reserva() {
         initComponents();
         Inicio pl = new Inicio();
         ShowPanel(pl);
-  
     }
     /**
      * This method is called from within the constructor to initialize the form.
