@@ -5,21 +5,17 @@
 package com.reserva;
 
 import java.awt.Color;
+
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author pedro
- */
-public class PanelIngreso extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelIngreso
-     */
-    public PanelIngreso() {
+public class PanelIngreso extends javax.swing.JPanel {
+Login lgg;
+Reserva pr;
+    public PanelIngreso(Login lg) {
         initComponents();
-        
-        
+        lgg = lg;
+        pr = new Reserva();
     }
 
     /**
@@ -147,6 +143,9 @@ public class PanelIngreso extends javax.swing.JPanel {
 
     private void IngresarTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarTxtMouseClicked
         
+        if (PIUsuario.getText().isEmpty()||PIContraseña.getText().isEmpty()||PIIdentificacion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "llene los campos en blanco");
+        }
         int x, index=-1;
         for (x=0;x<PanelRegistro.ArrayListIdentificacion.size();x++){
             if (PanelRegistro.ArrayListIdentificacion.get(x).equals(PIIdentificacion.getText())){
@@ -158,8 +157,9 @@ public class PanelIngreso extends javax.swing.JPanel {
         }
         if (PIUsuario.getText().equals(PanelRegistro.ArrayListNombre.get(index))){
             if (PIContraseña.getText().equals(PanelRegistro.ArrayListContraseña.get(index))){
-               this.setVisible(false);
-               Reserva pr = new Reserva();
+                
+                lgg.setVisible(false);
+               
                pr.setVisible(true);
             }
         }

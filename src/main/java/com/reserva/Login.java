@@ -5,8 +5,8 @@
 package com.reserva;
 
 import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-
 
 public class Login extends javax.swing.JFrame {
 
@@ -14,6 +14,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
+        jLabel1.setIcon(new ImageIcon("C:/cine2.jpg"));
         
     }
 
@@ -27,18 +28,18 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         Botones = new javax.swing.JPanel();
-        Logo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         Registrarme = new javax.swing.JButton();
         Ingresar = new javax.swing.JButton();
+        Admin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         PanelVariable = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(950, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botones.setBackground(new java.awt.Color(51, 102, 255));
-
-        Logo.setText("jLabel1");
 
         Registrarme.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         Registrarme.setText("Registrarme");
@@ -56,6 +57,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        Admin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        Admin.setText("Ingresar como Administrador");
+        Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BotonesLayout = new javax.swing.GroupLayout(Botones);
         Botones.setLayout(BotonesLayout);
         BotonesLayout.setHorizontalGroup(
@@ -66,27 +75,30 @@ public class Login extends javax.swing.JFrame {
             .addGroup(BotonesLayout.createSequentialGroup()
                 .addGroup(BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BotonesLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BotonesLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Admin, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(Registrarme, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                            .addComponent(Ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(Ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(BotonesLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         BotonesLayout.setVerticalGroup(
             BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonesLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Registrarme, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         getContentPane().add(Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 550));
@@ -116,9 +128,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarmeActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        PanelIngreso p2 = new PanelIngreso();
+        PanelIngreso p2 = new PanelIngreso(this);
         MostrarPanel(p2);
     }//GEN-LAST:event_IngresarActionPerformed
+
+    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
+        PanelIngresoAdmin p3 = new PanelIngresoAdmin();
+        MostrarPanel(p3);
+    }//GEN-LAST:event_AdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,11 +182,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Admin;
     private javax.swing.JPanel Botones;
     private javax.swing.JButton Ingresar;
-    private javax.swing.JLabel Logo;
     private javax.swing.JPanel PanelVariable;
     private javax.swing.JButton Registrarme;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

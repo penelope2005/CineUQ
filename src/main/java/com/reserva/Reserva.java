@@ -6,21 +6,17 @@ package com.reserva;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
-/**
- *
- * @author Usuario
- */
+
+
 public class Reserva extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Reserva
-     */
+  
     public Reserva() {
         initComponents();
         Inicio pl = new Inicio();
         ShowPanel(pl);
+  
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,14 +48,14 @@ public class Reserva extends javax.swing.JFrame {
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Pvariable.setBackground(new java.awt.Color(255, 255, 255));
-        Pvariable.setMinimumSize(new java.awt.Dimension(750, 550));
+        Pvariable.setMinimumSize(new java.awt.Dimension(0, 0));
         Pvariable.setPreferredSize(new java.awt.Dimension(750, 550));
 
         javax.swing.GroupLayout PvariableLayout = new javax.swing.GroupLayout(Pvariable);
         Pvariable.setLayout(PvariableLayout);
         PvariableLayout.setHorizontalGroup(
             PvariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGap(0, 710, Short.MAX_VALUE)
         );
         PvariableLayout.setVerticalGroup(
             PvariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,19 +150,19 @@ public class Reserva extends javax.swing.JFrame {
         Pbotones.setLayout(PbotonesLayout);
         PbotonesLayout.setHorizontalGroup(
             PbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PbotonesLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(logoCine, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PbotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator1))
             .addGroup(PbotonesLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(logoCine, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+            .addGroup(PbotonesLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(PbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(confiteria, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(confiteria, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonPagoTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,7 +222,7 @@ public class Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_botonReservaActionPerformed
 
     private void confiteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confiteriaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_confiteriaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -244,7 +240,7 @@ public class Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonInicioActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
