@@ -5,14 +5,21 @@
 package com.reserva;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 
 public class PanelIngreso extends javax.swing.JPanel {
-Login lgg;
-Reserva pr;
+    
+    Login lgg;
+    Reserva pr;
+    public static Date fechaActual = new Date();
+    public static SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
+    public float valorComprado;
+    
     public PanelIngreso(Login lg) {
         initComponents();
         lgg = lg;
@@ -163,6 +170,7 @@ Reserva pr;
                 pr.setVisible(true);
                 ArrayList<String>ArrayListTemporal = new ArrayList<>();
                 ArrayListTemporal.add(""+PIIdentificacion.getText());
+                ArrayListTemporal.add(fecha.format(fechaActual));
                 
             }
         }
