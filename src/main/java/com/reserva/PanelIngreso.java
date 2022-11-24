@@ -5,6 +5,7 @@
 package com.reserva;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -159,8 +160,10 @@ Reserva pr;
             if (PIContraseña.getText().equals(PanelRegistro.ArrayListContraseña.get(index))){
                 
                 lgg.setVisible(false);
-               
-               pr.setVisible(true);
+                pr.setVisible(true);
+                ArrayList<String>ArrayListTemporal = new ArrayList<>();
+                ArrayListTemporal.add(""+PIIdentificacion.getText());
+                
             }
         }
         else{

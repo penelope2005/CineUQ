@@ -4,17 +4,23 @@
  */
 package com.reserva;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
 /**
  *
  * @author pedro
  */
 public class PanelConfiteria extends javax.swing.JPanel {
-
-    /**
-     * Creates new form PanelConfiteria
-     */
+    
+    static ArrayList <String>seleccionado;
+    static ArrayList<Integer>cantidades;
+    
+ 
     public PanelConfiteria() {
         initComponents();
+        seleccionado = new ArrayList<>();
+        cantidades = new ArrayList<>();
     }
 
     /**
@@ -27,21 +33,94 @@ public class PanelConfiteria extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanelConfiteria = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ComboBoxConfiteria = new javax.swing.JComboBox<>();
         ConfiteriaTxt = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        descripcionTxt = new javax.swing.JLabel();
+        posibleImagen = new javax.swing.JLabel();
+        NombreProductoTxt = new javax.swing.JLabel();
+        PrecioTxt = new javax.swing.JLabel();
+        jSpinnerCantidades = new javax.swing.JSpinner();
+        AgregarCompra = new javax.swing.JPanel();
+        AgregarCompraTxt = new javax.swing.JLabel();
+        descripcion = new javax.swing.JPanel();
+        descripcionProductoTxt = new javax.swing.JLabel();
 
         jPanelConfiteria.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxConfiteria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        ComboBoxConfiteria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Combo 1", "Combo 2", "Combo 3", "Combo 4", "Crispetas Pequeñas", "Crispetas Medianas", "Crispetas Grandes", "Perro Caliente", "Sandwich", "Agua", "Té", "Gaseosa" }));
+        ComboBoxConfiteria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                ComboBoxConfiteriaActionPerformed(evt);
             }
         });
 
         ConfiteriaTxt.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         ConfiteriaTxt.setText("Confiteria");
+
+        descripcionTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        descripcionTxt.setText("Seleccione un item y agregue a su carrito, si desea agregar más de un producto repita el proceso");
+
+        NombreProductoTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        PrecioTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        AgregarCompra.setBackground(new java.awt.Color(153, 153, 153));
+
+        AgregarCompraTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        AgregarCompraTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AgregarCompraTxt.setText("Agregar a la Compra");
+        AgregarCompraTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarCompraTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AgregarCompraTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AgregarCompraTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AgregarCompraLayout = new javax.swing.GroupLayout(AgregarCompra);
+        AgregarCompra.setLayout(AgregarCompraLayout);
+        AgregarCompraLayout.setHorizontalGroup(
+            AgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(AgregarCompraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+        );
+        AgregarCompraLayout.setVerticalGroup(
+            AgregarCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(AgregarCompraTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        descripcion.setBackground(new java.awt.Color(153, 153, 153));
+
+        descripcionProductoTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        descripcionProductoTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descripcionProductoTxt.setText("Descripción");
+        descripcionProductoTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                descripcionProductoTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                descripcionProductoTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                descripcionProductoTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout descripcionLayout = new javax.swing.GroupLayout(descripcion);
+        descripcion.setLayout(descripcionLayout);
+        descripcionLayout.setHorizontalGroup(
+            descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(descripcionProductoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        descripcionLayout.setVerticalGroup(
+            descripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(descripcionProductoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanelConfiteriaLayout = new javax.swing.GroupLayout(jPanelConfiteria);
         jPanelConfiteria.setLayout(jPanelConfiteriaLayout);
@@ -51,9 +130,25 @@ public class PanelConfiteria extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(jPanelConfiteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfiteriaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConfiteriaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(descripcionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelConfiteriaLayout.createSequentialGroup()
+                        .addComponent(ComboBoxConfiteria, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanelConfiteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(posibleImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NombreProductoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelConfiteriaLayout.createSequentialGroup()
+                                .addComponent(PrecioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(jSpinnerCantidades, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConfiteriaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelConfiteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(AgregarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(212, 212, 212))
         );
         jPanelConfiteriaLayout.setVerticalGroup(
             jPanelConfiteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,9 +157,27 @@ public class PanelConfiteria extends javax.swing.JPanel {
                 .addComponent(ConfiteriaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(descripcionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelConfiteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelConfiteriaLayout.createSequentialGroup()
+                        .addComponent(ComboBoxConfiteria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelConfiteriaLayout.createSequentialGroup()
+                        .addGroup(jPanelConfiteriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSpinnerCantidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelConfiteriaLayout.createSequentialGroup()
+                                .addComponent(posibleImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(NombreProductoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PrecioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(62, 62, 62)
+                        .addComponent(AgregarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -79,15 +192,141 @@ public class PanelConfiteria extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void ComboBoxConfiteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxConfiteriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_ComboBoxConfiteriaActionPerformed
+
+    private void AgregarCompraTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCompraTxtMouseExited
+        AgregarCompra.setBackground(new Color (153,153,153));
+        AgregarCompraTxt.setForeground(Color.black);
+    }//GEN-LAST:event_AgregarCompraTxtMouseExited
+
+    private void AgregarCompraTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCompraTxtMouseEntered
+        AgregarCompra.setBackground(new Color(51,102,255));
+        AgregarCompraTxt.setForeground(Color.white);
+    }//GEN-LAST:event_AgregarCompraTxtMouseEntered
+
+    private void AgregarCompraTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCompraTxtMouseClicked
+        switch (ComboBoxConfiteria.getSelectedItem().toString()) {
+            case "Combo 1":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Combo 2":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Combo 3":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Combo 4":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Crispetas Pequeñas":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Crispetas Medianas":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Crispetas Grandes":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Perro Caliente":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Sandwich":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Agua":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "té":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            case "Gaseosa":
+            seleccionado.add(ComboBoxConfiteria.getSelectedItem().toString());
+            cantidades.add((Integer)jSpinnerCantidades.getValue());
+            break;
+            default:
+            break;
+        }
+
+    }//GEN-LAST:event_AgregarCompraTxtMouseClicked
+
+    private void descripcionProductoTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descripcionProductoTxtMouseEntered
+        descripcion.setBackground(new Color(51,102,255));
+        descripcionProductoTxt.setForeground(Color.white);
+    }//GEN-LAST:event_descripcionProductoTxtMouseEntered
+
+    private void descripcionProductoTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descripcionProductoTxtMouseExited
+        descripcion.setBackground(new Color (153,153,153));
+        descripcionProductoTxt.setForeground(Color.black);
+    }//GEN-LAST:event_descripcionProductoTxtMouseExited
+
+    private void descripcionProductoTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descripcionProductoTxtMouseClicked
+        switch (ComboBoxConfiteria.getSelectedItem().toString()) {
+            case "Combo 1":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(0));
+            case "Combo 2":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(1));
+            case "Combo 3":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(2));
+            case "Combo 4":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(3));
+            case "Crispetas Pequeñas":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(4));
+            case "Crispetas Medianas":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(5));
+            case "Crispetas Grandes":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(6));
+            case "Perro Caliente":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(7));
+            case "Sandwich":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(8));
+            case "Agua":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(9));
+            case "Té":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(10));
+            case "Gaseosa":
+                NombreProductoTxt.setText(ComboBoxConfiteria.getSelectedItem().toString());
+                PrecioTxt.setText(""+PanelStockConfiteria.precioConfiteria.get(11));
+        }
+    }//GEN-LAST:event_descripcionProductoTxtMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AgregarCompra;
+    private javax.swing.JLabel AgregarCompraTxt;
+    private javax.swing.JComboBox<String> ComboBoxConfiteria;
     private javax.swing.JLabel ConfiteriaTxt;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel NombreProductoTxt;
+    private javax.swing.JLabel PrecioTxt;
+    private javax.swing.JPanel descripcion;
+    private javax.swing.JLabel descripcionProductoTxt;
+    private javax.swing.JLabel descripcionTxt;
     private javax.swing.JPanel jPanelConfiteria;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSpinner jSpinnerCantidades;
+    private javax.swing.JLabel posibleImagen;
     // End of variables declaration//GEN-END:variables
 }

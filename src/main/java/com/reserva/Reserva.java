@@ -222,7 +222,8 @@ public class Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_botonReservaActionPerformed
 
     private void confiteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confiteriaActionPerformed
-
+        PanelConfiteria p1 = new PanelConfiteria();
+        ShowPanel(p1);
     }//GEN-LAST:event_confiteriaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
