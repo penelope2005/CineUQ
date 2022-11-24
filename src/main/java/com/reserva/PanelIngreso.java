@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 
 public class PanelIngreso extends javax.swing.JPanel {
+    static String usuarioConsulta;
     
     Login lgg;
     Reserva pr;
@@ -53,6 +54,11 @@ public class PanelIngreso extends javax.swing.JPanel {
         NombreUsuarioTxt.setText("Nombre de Usuario");
 
         PIUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        PIUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PIUsuarioActionPerformed(evt);
+            }
+        });
 
         identificacionTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         identificacionTxt.setText("Identificación");
@@ -178,6 +184,11 @@ public class PanelIngreso extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos");
         }
     }//GEN-LAST:event_IngresarTxtMouseClicked
+
+    private void PIUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIUsuarioActionPerformed
+        // TODO add your handling code here:
+        usuarioConsulta = PIUsuario.getText();
+    }//GEN-LAST:event_PIUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,10 +9,7 @@ package com.reserva;
  * @author mamar
  */
 public class panelConsulta extends javax.swing.JPanel {
-
-    /**
-     * Creates new form panelConsulta
-     */
+    int indice;
     public panelConsulta() {
         initComponents();
     }
@@ -29,7 +26,7 @@ public class panelConsulta extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        salidaConsulta = new javax.swing.JLabel();
 
         jLabel1.setText("Esta ventana funciona para obtener la información del usuario:");
 
@@ -57,9 +54,9 @@ public class panelConsulta extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel1)))
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 129, Short.MAX_VALUE))
+                .addGap(168, 168, 168)
+                .addComponent(salidaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 138, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,14 +69,19 @@ public class panelConsulta extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+                .addGap(55, 55, 55)
+                .addComponent(salidaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        String usuario, resp="";
+        usuario = PanelIngreso.usuarioConsulta;
+        indice = PanelRegistro.ArrayListNombre.indexOf(usuario);
+        resp = indice + "";
+        salidaConsulta.setText(resp);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -87,6 +89,6 @@ public class panelConsulta extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel salidaConsulta;
     // End of variables declaration//GEN-END:variables
 }
