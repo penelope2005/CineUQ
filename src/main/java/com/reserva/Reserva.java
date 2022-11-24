@@ -122,7 +122,7 @@ public class Reserva extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(51, 102, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("jButton4");
+        jButton4.setText("Pagos");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton4.setBorderPainted(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,7 +135,7 @@ public class Reserva extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(51, 102, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("jButton5");
+        jButton5.setText("Consultar");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton5.setBorderPainted(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -255,7 +255,8 @@ public class Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonInicioActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+    panelConsulta pl = new panelConsulta();
+        ShowPanel(pl);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
