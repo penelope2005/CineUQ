@@ -11,11 +11,16 @@ import javax.swing.JPanel;
 public class Reserva extends javax.swing.JFrame {
     Login lg = new Login ();
     static boolean tarjetaUQ;
-    static int cantidadAsientos; 
+    static int cantidadAsientos;
+    static panelReserva pl = new panelReserva();
+    static PanelConfiteria pc = new PanelConfiteria();
+    static tarjetaUQ tu = new tarjetaUQ();
+    static Inicio in = new Inicio();
+    static panelConsulta po = new panelConsulta();
+    
     public Reserva() {
         initComponents();
-        Inicio pl = new Inicio();
-        ShowPanel(pl);
+        ShowPanel(in);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -225,19 +230,23 @@ public class Reserva extends javax.swing.JFrame {
     private void ShowPanel(JPanel p){
         p.setSize(750, 550);
         p.setLocation(0, 0);
-        Pvariable.removeAll();
+        pl.setVisible(false);
+        pc.setVisible(false);
+        tu.setVisible(false);
+        in.setVisible(false);
+        po.setVisible(false);
+        //Pvariable.removeAll();
         Pvariable.add(p, BorderLayout.CENTER);
+        p.setVisible(true);
         Pvariable.revalidate();
         Pvariable.repaint();
     }
     private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
-        panelReserva pl = new panelReserva();
         ShowPanel(pl);
     }//GEN-LAST:event_botonReservaActionPerformed
 
     private void confiteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confiteriaActionPerformed
-        PanelConfiteria p1 = new PanelConfiteria();
-        ShowPanel(p1);
+        ShowPanel(pc);
     }//GEN-LAST:event_confiteriaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -245,18 +254,15 @@ public class Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void BotonPagoTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPagoTarjetaActionPerformed
-        tarjetaUQ pl = new tarjetaUQ();
-        ShowPanel(pl);
+        ShowPanel(tu);
     }//GEN-LAST:event_BotonPagoTarjetaActionPerformed
 
     private void BotonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioActionPerformed
-        Inicio pl = new Inicio();
-        ShowPanel(pl);
+        ShowPanel(in);
     }//GEN-LAST:event_BotonInicioActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    panelConsulta pl = new panelConsulta();
-        ShowPanel(pl);
+        ShowPanel(po);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

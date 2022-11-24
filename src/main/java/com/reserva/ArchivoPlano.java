@@ -40,27 +40,14 @@ public class ArchivoPlano {
     // creamos el metodo para escribir en el archivo de texto
 
 
-    public void escribirArchivo(ArrayList<String> variable, ArrayList<Integer> variable2){
-        String mensaje1="", mensaje2="";
-        if(variable2 == null){
-            for(int i=0;i<variable.size();i++){
-                mensaje1+=variable.get(i)+" ";
-            }
-        }
-        else if(variable == null){
-           for(int i=0;i<variable2.size();i++){
-                mensaje2+=variable2.get(i)+" ";
-           }
-        }
-        else{
-            for(int i=0;i<variable.size();i++){
-                mensaje1+=variable.get(i)+" ";
-                mensaje2+=variable2.get(i)+" ";
-            }
+    public void escribirArchivo(ArrayList<String> variable){
+        String mensaje1="";
+        for(int i=0;i<variable.size();i++){
+            mensaje1+=variable.get(i)+" ";
         }
         try{
             FileWriter escritura = new FileWriter(archivo, true);
-            String LineToAppend = mensaje1 + "\n" + mensaje2 + "\n"; //variable a cambiar
+            String LineToAppend = mensaje1 + "\n"; //variable a cambiar
             escritura.write(LineToAppend);
             escritura.close();
             JOptionPane.showMessageDialog(null, "Texto Añadido con exito");
