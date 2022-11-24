@@ -18,10 +18,10 @@ public class ArchivoPlano {
        archivo = new File("archivo.txt");
        try{
            if(archivo.createNewFile()){
-               JOptionPane.showMessageDialog(null, "Archivo creado con exito");
+               System.out.println("Archivo creado con exito");
            }
            else{
-               JOptionPane.showMessageDialog(null, "Error al crear archivo");
+               System.out.println("Error al crear archivo");
            }
        }catch(IOException exepcion){
            exepcion.printStackTrace(System.out);
@@ -42,9 +42,21 @@ public class ArchivoPlano {
 
     public void escribirArchivo(ArrayList<String> variable, ArrayList<Integer> variable2){
         String mensaje1="", mensaje2="";
-        for(int i=0;i<variable.size();i++){
-            mensaje1+=variable.get(i)+" ";
-            mensaje2+=variable2.get(i)+" ";
+        if(variable2 == null){
+            for(int i=0;i<variable.size();i++){
+                mensaje1+=variable.get(i)+" ";
+            }
+        }
+        else if(variable == null){
+           for(int i=0;i<variable2.size();i++){
+                mensaje2+=variable2.get(i)+" ";
+           }
+        }
+        else{
+            for(int i=0;i<variable.size();i++){
+                mensaje1+=variable.get(i)+" ";
+                mensaje2+=variable2.get(i)+" ";
+            }
         }
         try{
             FileWriter escritura = new FileWriter(archivo, true);

@@ -121,14 +121,12 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jButton1" pref="152" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="confiteria" max="32767" attributes="0"/>
-                              <Component id="jButton5" max="32767" attributes="0"/>
-                              <Component id="jButton4" max="32767" attributes="0"/>
-                              <Component id="BotonPagoTarjeta" pref="152" max="32767" attributes="0"/>
-                              <Component id="botonReserva" max="32767" attributes="0"/>
-                              <Component id="BotonInicio" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="confiteria" max="32767" attributes="0"/>
+                          <Component id="jButton5" max="32767" attributes="0"/>
+                          <Component id="jButton4" max="32767" attributes="0"/>
+                          <Component id="BotonPagoTarjeta" pref="152" max="32767" attributes="0"/>
+                          <Component id="botonReserva" max="32767" attributes="0"/>
+                          <Component id="BotonInicio" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>

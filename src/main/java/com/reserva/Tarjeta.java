@@ -12,9 +12,10 @@ import javax.swing.JOptionPane;
 public class Tarjeta extends javax.swing.JPanel {
     static ArrayList<String>copiaNombre = new ArrayList<String>();
     static ArrayList<String>copiaIdentificacion = new ArrayList<String>();
-    /**
-     * Creates new form Tarjeta
-     */
+    static ArrayList<String>numeroTarjeta = new ArrayList<String>();
+    static ArrayList<String>AlmacenarDatos = new ArrayList<String>();
+    //boolean tarjetaUQ = false;
+    String numeroIdentificacion;
     public Tarjeta() {
         initComponents();
         copiaNombre = copiar(copiaNombre);
@@ -37,6 +38,21 @@ public class Tarjeta extends javax.swing.JPanel {
         return copia;
     }
     private void Validacion (){
+        if(Reserva.tarjetaUQ){
+            JOptionPane.showMessageDialog(null, "Usted ya es poseedor de la tarjeta UQ");
+        }    
+        else{
+            String opcion = TarjetasOPC.getSelectedItem().toString();
+            numeroIdentificacion = copiaIdentificacion.get(0);
+            if("Tarjeta UQ Basic".equals(opcion)){
+                Reserva.tarjetaUQ = true;
+                numeroTarjeta.add(numeroIdentificacion);
+                JOptionPane.showMessageDialog(null, "Gracias por adquirir la tarjeta del cine UQ");
+            }
+            else if("Tarjeta UQ Gold".equals(opcion)){
+                JOptionPane.showMessageDialog(null, "Esta opcion no es adquirible");
+            }
+        }
         
     }
     /**
@@ -49,7 +65,7 @@ public class Tarjeta extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        TarjetasOPC = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -57,15 +73,15 @@ public class Tarjeta extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Seleccione la tarjeta a solicitar.");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta UQ Basic", "Tarjeta UQ Gold" }));
-        jComboBox1.addContainerListener(new java.awt.event.ContainerAdapter() {
+        TarjetasOPC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarjeta UQ Basic", "Tarjeta UQ Gold" }));
+        TarjetasOPC.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                jComboBox1ComponentRemoved(evt);
+                TarjetasOPCComponentRemoved(evt);
             }
         });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        TarjetasOPC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                TarjetasOPCActionPerformed(evt);
             }
         });
 
@@ -87,7 +103,7 @@ public class Tarjeta extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(245, 245, 245)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TarjetasOPC, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(322, 322, 322)
@@ -100,29 +116,29 @@ public class Tarjeta extends javax.swing.JPanel {
                 .addGap(68, 68, 68)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TarjetasOPC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(jButton1)
                 .addContainerGap(302, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jComboBox1ComponentRemoved
+    private void TarjetasOPCComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_TarjetasOPCComponentRemoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ComponentRemoved
+    }//GEN-LAST:event_TarjetasOPCComponentRemoved
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void TarjetasOPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarjetasOPCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_TarjetasOPCActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       //validacion();
+       Validacion();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> TarjetasOPC;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
